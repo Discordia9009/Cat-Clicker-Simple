@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://b3376lcqwaosk"]
+
+[ext_resource type="Script" path="res://Label.gd" id="1_glxwu"]
+[ext_resource type="FontFile" uid="uid://bbt2klfvckpqs" path="res://Pixellari.ttf" id="1_jj63b"]
+[ext_resource type="Texture2D" uid="uid://cmrcokrdhxhn8" path="res://gatin.png" id="2_rt737"]
+[ext_resource type="Script" path="res://Gatin.gd" id="3_5ebxl"]
+[ext_resource type="Texture2D" uid="uid://dx58aa2fksf6b" path="res://coin.png" id="4_xkv3x"]
+[ext_resource type="Script" path="res://ButtonScript.gd" id="6_8bn2q"]
+[ext_resource type="Script" path="res://Button5Script.gd" id="7_jhbn6"]
+[ext_resource type="Script" path="res://Button2Script.gd" id="7_v0end"]
+[ext_resource type="Texture2D" uid="uid://cdkvq8c1rgp7n" path="res://Cadeado.png" id="8_hdgpb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 695.0
+offset_top = 97.0
+offset_right = 1078.0
+offset_bottom = 249.0
+theme_override_fonts/font = ExtResource("1_jj63b")
+theme_override_font_sizes/font_size = 87
+text = "0"
+script = ExtResource("1_glxwu")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(587, 309)
+scale = Vector2(10.88, 9.76)
+
+[node name="Gatin" type="Sprite2D" parent="Area2D"]
+position = Vector2(-0.359711, 0.204918)
+scale = Vector2(0.0899281, 0.102459)
+texture = ExtResource("2_rt737")
+script = ExtResource("3_5ebxl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-1.97842, -3.07377, 0.53957, -2.97131, 3.95683, -3.9959, 4.94604, -7.68443, 7.46403, -7.78689, 6.56475, -3.38115, 5.03597, 0.307377, 4.94604, 5.7377, 1.16907, 5.7377, 0.989208, 2.76639, -0.449638, 2.66393, -0.629494, 6.35246, -4.4964, 6.45492, -4.4964, 2.2541, -6.02518, 0, -5.21582, -1.43443, -8.81295, -3.27869, -9.08273, -5.63525, -8.0036, -8.40164, -5.75539, -8.5041, -4.04676, -8.81148, -2.96762, -7.78689, -1.34892, -5.53279)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(637, 133)
+scale = Vector2(0.531094, 0.457627)
+texture = ExtResource("4_xkv3x")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 365.0
+offset_top = 122.0
+offset_right = 450.0
+offset_bottom = 162.0
+text = "Lojinha"
+script = ExtResource("6_8bn2q")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 223.0
+offset_right = 742.0
+offset_bottom = 362.0
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Item 1"
+script = ExtResource("7_v0end")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer/Button2"]
+position = Vector2(283, 14)
+scale = Vector2(0.0806401, 0.0740085)
+texture = ExtResource("8_hdgpb")
+
+[node name="Button3" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Item 2"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Control/VBoxContainer/Button3"]
+position = Vector2(284, 15)
+scale = Vector2(0.0806401, 0.0740085)
+texture = ExtResource("8_hdgpb")
+
+[node name="Button4" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Item3"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/VBoxContainer/Button4"]
+position = Vector2(284, 13)
+scale = Vector2(0.0806401, 0.0740085)
+texture = ExtResource("8_hdgpb")
+
+[node name="Button5" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "BACK"
+script = ExtResource("7_jhbn6")
+
+[connection signal="input_event" from="Area2D" to="Label" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Area2D" to="Area2D/Gatin" method="_on_area_2d_input_event"]
