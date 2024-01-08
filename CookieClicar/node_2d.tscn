@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3376lcqwaosk"]
+[gd_scene load_steps=12 format=3 uid="uid://b3376lcqwaosk"]
 
 [ext_resource type="Script" path="res://Label.gd" id="1_glxwu"]
 [ext_resource type="FontFile" uid="uid://bbt2klfvckpqs" path="res://Pixellari.ttf" id="1_jj63b"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Button5Script.gd" id="7_jhbn6"]
 [ext_resource type="Script" path="res://Button2Script.gd" id="7_v0end"]
 [ext_resource type="Texture2D" uid="uid://cdkvq8c1rgp7n" path="res://Cadeado.png" id="8_hdgpb"]
+[ext_resource type="Script" path="res://Button3Script.gd" id="9_s5yho"]
+[ext_resource type="AudioStream" uid="uid://cyorjirsk3auk" path="res://Door open sound effe.mp3" id="11_3ah5f"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -49,13 +51,13 @@ text = "Lojinha"
 script = ExtResource("6_8bn2q")
 
 [node name="Control" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+visible = false
 layout_mode = 0
 offset_left = 419.0
 offset_top = 223.0
@@ -64,7 +66,7 @@ offset_bottom = 362.0
 
 [node name="Button2" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "Item 1"
+text = "CatAuto Clicker R$20"
 script = ExtResource("7_v0end")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer/Button2"]
@@ -74,7 +76,8 @@ texture = ExtResource("8_hdgpb")
 
 [node name="Button3" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "Item 2"
+text = "Olhos verdes R$40"
+script = ExtResource("9_s5yho")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Control/VBoxContainer/Button3"]
 position = Vector2(284, 15)
@@ -95,6 +98,10 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "BACK"
 script = ExtResource("7_jhbn6")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_3ah5f")
+volume_db = 15.848
 
 [connection signal="input_event" from="Area2D" to="Label" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Area2D" to="Area2D/Gatin" method="_on_area_2d_input_event"]
