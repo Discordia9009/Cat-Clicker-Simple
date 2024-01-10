@@ -11,7 +11,10 @@ config_version=5
 [application]
 
 config/name="Cookie Clicar"
+run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://gatingatindeoiverdecomchapeu.png"
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [aseprite_importers]
@@ -21,6 +24,10 @@ aseprite_executable_path="C:/aseprite/build/bin/aseprite.exe"
 [autoload]
 
 Node2Dscript="*res://node_2dscript.gd"
+
+[display]
+
+window/size/resizable=false
 
 [dotnet]
 
