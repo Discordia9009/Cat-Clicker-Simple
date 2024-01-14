@@ -1,2 +1,0 @@
-# Cat-Clicker
- Simple Game

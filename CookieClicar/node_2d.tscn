@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b3376lcqwaosk"]
+[gd_scene load_steps=22 format=3 uid="uid://b3376lcqwaosk"]
 
 [ext_resource type="Script" path="res://Label.gd" id="1_glxwu"]
 [ext_resource type="FontFile" uid="uid://bbt2klfvckpqs" path="res://Pixellari.ttf" id="1_jj63b"]
@@ -9,9 +9,18 @@
 [ext_resource type="Script" path="res://Button5Script.gd" id="7_jhbn6"]
 [ext_resource type="Script" path="res://Button2Script.gd" id="7_v0end"]
 [ext_resource type="Texture2D" uid="uid://cdkvq8c1rgp7n" path="res://Cadeado.png" id="8_hdgpb"]
+[ext_resource type="Script" path="res://Sprite2DscriptChanged.gd" id="9_ky660"]
 [ext_resource type="Script" path="res://Button3Script.gd" id="9_s5yho"]
 [ext_resource type="Script" path="res://Button4Script.gd" id="10_w2mmn"]
 [ext_resource type="AudioStream" uid="uid://cyorjirsk3auk" path="res://Door open sound effe.mp3" id="11_3ah5f"]
+[ext_resource type="Script" path="res://Sprite2D3Script.gd" id="11_w3fm1"]
+[ext_resource type="Script" path="res://Sprite2D2Script.gd" id="13_lfl0k"]
+[ext_resource type="Script" path="res://BosstClickerScript.gd" id="14_7k4j8"]
+[ext_resource type="Texture2D" uid="uid://crokbvkb47166" path="res://setaboost.png" id="15_3mx8v"]
+[ext_resource type="Texture2D" uid="uid://d6obh7v61xkx" path="res://Limon.png" id="15_pnyhd"]
+[ext_resource type="Texture2D" uid="uid://bn0egcm2mgk1c" path="res://seta.png" id="16_m2vx2"]
+[ext_resource type="Script" path="res://Button6script.gd" id="16_qqiiy"]
+[ext_resource type="Texture2D" uid="uid://dwehfn8hol44d" path="res://chapeu.png" id="17_eeieu"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -71,9 +80,10 @@ text = "CatAuto Clicker R$20"
 script = ExtResource("7_v0end")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer/Button2"]
-position = Vector2(283, 14)
+position = Vector2(285, 14)
 scale = Vector2(0.0806401, 0.0740085)
 texture = ExtResource("8_hdgpb")
+script = ExtResource("9_ky660")
 
 [node name="Button3" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -81,19 +91,42 @@ text = "Olhos verdes R$40"
 script = ExtResource("9_s5yho")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Control/VBoxContainer/Button3"]
-position = Vector2(284, 15)
+position = Vector2(283, 15)
 scale = Vector2(0.0806401, 0.0740085)
 texture = ExtResource("8_hdgpb")
+script = ExtResource("11_w3fm1")
 
 [node name="Button4" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
-text = "Item3"
+text = "Chapeu R$50"
 script = ExtResource("10_w2mmn")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Control/VBoxContainer/Button4"]
 position = Vector2(284, 13)
 scale = Vector2(0.0806401, 0.0740085)
 texture = ExtResource("8_hdgpb")
+script = ExtResource("13_lfl0k")
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Boost Clicker"
+script = ExtResource("14_7k4j8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/VBoxContainer/Button"]
+position = Vector2(32, 16.5)
+scale = Vector2(0.26, 0.223333)
+texture = ExtResource("15_3mx8v")
+
+[node name="Sprite2D22" type="Sprite2D" parent="Control/VBoxContainer/Button"]
+position = Vector2(284, 13)
+scale = Vector2(0.0806401, 0.0740085)
+texture = ExtResource("8_hdgpb")
+script = ExtResource("13_lfl0k")
+
+[node name="Button6" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Gato Laranja!!! R$3.000"
+script = ExtResource("16_qqiiy")
 
 [node name="Button5" type="Button" parent="Control/VBoxContainer"]
 layout_mode = 2
@@ -101,9 +134,39 @@ size_flags_horizontal = 4
 text = "BACK"
 script = ExtResource("7_jhbn6")
 
+[node name="Sprite2D2" type="Sprite2D" parent="Control/VBoxContainer"]
+position = Vector2(25, 50.9375)
+scale = Vector2(0.173333, 0.16625)
+texture = ExtResource("15_pnyhd")
+
+[node name="Seta" type="Sprite2D" parent="Control/VBoxContainer"]
+position = Vector2(30, 16)
+scale = Vector2(0.233333, 0.203333)
+texture = ExtResource("16_m2vx2")
+
+[node name="hat" type="Sprite2D" parent="Control/VBoxContainer"]
+position = Vector2(26, 85)
+scale = Vector2(-0.0599257, 0.0570399)
+texture = ExtResource("17_eeieu")
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 228.0
+offset_top = 455.0
+offset_right = 945.0
+offset_bottom = 567.0
+theme_override_font_sizes/font_size = 30
+text = "VOCÊ CONSEGUIU O GATO LARANJA, PARABÉNS!!!"
+
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_3ah5f")
 volume_db = 15.848
 
 [connection signal="input_event" from="Area2D" to="Label" method="_on_area_2d_input_event"]
 [connection signal="input_event" from="Area2D" to="Area2D/Gatin" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Area2D" to="Control/VBoxContainer/Button" method="_on_area_2d_input_event"]
+[connection signal="texture_changed" from="Control/VBoxContainer/Button2/Sprite2D" to="Control/VBoxContainer/Button2/Sprite2D" method="_on_texture_changed"]
+[connection signal="texture_changed" from="Control/VBoxContainer/Button3/Sprite2D3" to="Control/VBoxContainer/Button3/Sprite2D3" method="_on_texture_changed"]
+[connection signal="texture_changed" from="Control/VBoxContainer/Button4/Sprite2D2" to="Control/VBoxContainer/Button4/Sprite2D2" method="_on_texture_changed"]
+[connection signal="texture_changed" from="Control/VBoxContainer/Button/Sprite2D22" to="Control/VBoxContainer/Button/Sprite2D22" method="_on_texture_changed"]

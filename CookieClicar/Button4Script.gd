@@ -5,11 +5,11 @@ extends Button
 @onready var label = $"../../../Label"
 
 func _pressed():
-	audio_stream_player_2d.play()
+	
 	if label.score >= 50:
+		audio_stream_player_2d.play()
 		label.score -= 50
-		if gatin.texture == load("res://gatin.png"):
-			 
+		if gatin.texture == load("res://gatin.png"): 
 			gatin.texture = load("res://gatincomchapeu.png")
 			gatin.position = Vector2(-0.551, -1.702)
 			self.disabled = true
